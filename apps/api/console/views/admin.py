@@ -13,7 +13,7 @@ from apps.api.console import auth_login
 class AdminGet(ApiViewBase):
     "获取管理用户信息"
     @async_response
-    @auth_login('admin_manage', async = True)
+    @auth_login('admin_manage')
     def GET(self):
         inp = utils.Input()
 
@@ -48,7 +48,7 @@ class AdminGet(ApiViewBase):
 class AdminStatusChange(ApiViewBase):
     "管理用户状态变更"
     @async_response
-    @auth_login('admin_manage', async = True)
+    @auth_login('admin_manage')
     def POST(self, command):
         inp = utils.Input()
 
@@ -74,7 +74,7 @@ class AdminStatusChange(ApiViewBase):
 class AdminSave(ApiViewBase):
     "保存给定管理用户"
     @async_response
-    @auth_login('admin_manage', async = True)
+    @auth_login('admin_manage')
     def POST(self):
         inp = utils.Input()
 
@@ -97,7 +97,7 @@ class AdminSave(ApiViewBase):
 class AdminQuery(ApiViewBase):
     "管理用户查询"
     @async_response
-    @auth_login('admin_manage', async = True)
+    @auth_login('admin_manage')
     def GET(self):
         inp = utils.Input()
 

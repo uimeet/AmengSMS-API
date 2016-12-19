@@ -12,7 +12,7 @@ from apps.api.console import auth_login
 class RoleDelete(ApiViewBase):
     "删除给定角色"
     @async_response
-    @auth_login('role_manage', async = True)
+    @auth_login('role_manage')
     def POST(self):
         role_id = utils.intval(web.input().get('role_id'))
         if role_id <= 0:
@@ -26,14 +26,14 @@ class RoleDelete(ApiViewBase):
 class RoleGetAll(ApiViewBase):
     "获取所有管理角色"
     @async_response
-    @auth_login('role_manage', async = True)
+    @auth_login('role_manage')
     def GET(self):
         return 0, 'success', web.ctx.admin.auth.find_roles()
 
 class RoleSave(ApiViewBase):
     "保存给定角色"
     @async_response
-    @auth_login('role_manage', async = True)
+    @auth_login('role_manage')
     def POST(self):
         inp = utils.Input()
 
@@ -57,7 +57,7 @@ class RoleSave(ApiViewBase):
 class RoleGet(ApiViewBase):
     "获取给定角色"
     @async_response
-    @auth_login('role_manage', async = True)
+    @auth_login('role_manage')
     def GET(self):
         inp, me = utils.Input(), web.ctx.admin
         # 角色内码
@@ -103,7 +103,7 @@ class RoleGet(ApiViewBase):
 class FunctionGetAll(ApiViewBase):
     "获取所有可授权功能点"
     @async_response
-    @auth_login('role_manage', async = True)
+    @auth_login('role_manage')
     def GET(self):
         me = web.ctx.admin
 

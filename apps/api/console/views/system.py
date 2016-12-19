@@ -3,7 +3,7 @@
 import web
 
 from core import utils, messages
-from core.api import book, enums
+from core.api import enums
 from core.libs import cache
 
 from apps import async_response, test
@@ -26,21 +26,17 @@ class ClearCache(ApiViewBase):
         cache.manager.delete('UserRole-%s' % web.ctx.admin.id)
         return messages.Success
 
-    def _promotion(self):
-        "删除推荐列表的缓存"
-        # 获取所有推荐列表id
-        ids = book.Book.find_all_promotion_ids()
-        if ids:
-            # 首页的推荐列表缓存
-            ids.append('2,3,4,5,6,7,8,9')
-            for pid in ids:
-                cache.manager.delete('GetPromotion-%s' % pid)
-
+    def _config(self):
+        "系统配置"
+        cache.manager.delete('settings-system')
         return messages.Success
 
-    def _toplist(self):
-        "删除排行榜的缓存"
-        for name in enums.Book.TopListNames:
-            cache.manager.delete('GetTopList-%s' % name)
+    def _allfunctions(self):
+        "所有功能列表"
+        cache.manager.delete('all-functions')
+        return messages.Success
 
+    def _allroles(self):
+        "所有角色列表"
+        cache.manager.delete('AllRoles')
         return messages.Success

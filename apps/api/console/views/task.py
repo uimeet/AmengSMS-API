@@ -12,7 +12,7 @@ from apps.api.console import auth_login
 class Detail(ApiViewBase):
     "获取任务详情"
     @async_response
-    @auth_login('task_manage', async=True)
+    @auth_login('task_manage')
     def GET(self):
         inp = utils.Input()
         task_id = inp.int('task_id')
@@ -39,7 +39,7 @@ class Detail(ApiViewBase):
 class Reactive(ApiViewBase):
     "重新激活给定任务"
     @async_response
-    @auth_login('task_manage', async=True)
+    @auth_login('task_manage')
     def POST(self):
         inp = utils.Input()
         task_id = inp.int('task_id')
@@ -62,7 +62,7 @@ class Reactive(ApiViewBase):
 class Query(ApiViewBase):
     "查询任务记录"
     @async_response
-    @auth_login('task_manage', async=True)
+    @auth_login('task_manage')
     def GET(self):
         inp = utils.Input()
 

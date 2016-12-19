@@ -76,6 +76,16 @@ COMET = storage(
 # ====== 跨域域名配置 ======
 CORS_DOMAINS = ('http://localhost:8000', 'http://127.0.0.1:8000',)
 
+# ====== 蜘蛛相关 ======
+# 是否启用代理
+ENABLE_PROXY = False
+# 代理服务器列表
+PROXIES = {
+    'default': {
+        'http': 'http://127.0.0.1:7071',
+    }
+}
+
 # ====== 聚合数据相关 ======
 JUHE = storage(
     # IP 接口

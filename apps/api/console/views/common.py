@@ -20,6 +20,5 @@ class Launch(ApiViewBase):
     @async_response
     def GET(self):
         return 0, 'success', {
-            'upload_url_prefix': settings.QINIU.URL_PREFIX,
             'static_url_prefix': '',
         }

@@ -12,9 +12,9 @@ from apps.api.console import auth_login
 
 MENUS = [
     # 用户管理
-    storage(text = u'用户', icon = 'ti-user', state = 'console.user', type = 1, children = [
-        storage(text = u'用户列表', state = 'console.user.list', code = 'user_manage'),
-        storage(text = u'交易记录', state = 'console.user.transaction', code = 'transaction_manage'),
+    storage(text = u'视频', icon = 'ti-user', state = 'console.video', type = 1, children = [
+        storage(text = u'上传视频', state = 'console.video.upload', code = 'video_manage'),
+        storage(text = u'视频列表', state = 'console.video.list', code = 'video_manage'),
     ]),
     # 管理员管理
     storage(text = u'管理员', icon = 'ti-github', state = 'console.admin', type = 4, children = [
@@ -29,7 +29,7 @@ MENUS = [
 class ShowMenu(ApiViewBase):
     "显示所有有效的管理菜单"
     @async_response
-    @auth_login(async = True)
+    @auth_login()
     def GET(self):
         menus = []
         admin = web.ctx.admin
