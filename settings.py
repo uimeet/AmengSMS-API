@@ -19,6 +19,18 @@ DATABASES = storage(
         slaves=[
         ],
     ),
+    # 媒体库
+    media=storage(
+        master=storage(
+            db='amengsms_media',
+            user='root',
+            pw='163888',
+            host='127.0.0.1',
+            port=3306,
+        ),
+        slaves=[
+        ],
+    ),
 )
 
 

@@ -15,6 +15,10 @@ urls = (
     # 获取所有有效的菜单
     '/show-menu', 'apps.api.console.views.menu.ShowMenu',
 
+    # === 视频 ===
+    # 上传视频接口
+    '/video/upload', 'apps.api.console.views.video.Upload',
+
     # === 管理用户 ===
     # 登录
     '/user/login', 'apps.api.console.views.admin.Login',

@@ -21,4 +21,8 @@ class Launch(ApiViewBase):
     def GET(self):
         return 0, 'success', {
             'static_url_prefix': '',
+            'upload_domains': [
+                'upload1.amengsms.com',
+                'upload2.amengsms.com',
+            ]
         }
